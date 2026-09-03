@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Панель управления — сайт-визитка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css?v=16">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="admin-head">
+    <h1>Панель управления</h1>
+    <a class="btn" href="index.html" target="_blank">Открыть сайт</a>
+  </header>
+
+  <nav class="anav" id="anav">
+    <button class="anav__tab is-active" data-panel="texts">Тексты</button>
+    <button class="anav__tab" data-panel="process">Схема работы</button>
+    <button class="anav__tab" data-panel="contacts">Контакты</button>
+    <button class="anav__tab" data-panel="portfolio">Портфолио</button>
+  </nav>
+
+  <section class="panel is-active" id="panel-texts">
+    <h2>Профиль и шапка</h2>
+    <div class="field">
+      <label>Полное имя</label>
+      <input type="text" id="f-fullName" data-path="profile.fullName">
+    </div>
+    <div class="field">
+      <label>Роль</label>
+      <input type="text" id="f-role" data-path="profile.role">
+    </div>
+    <div class="field">
+      <label>Вариант лого</label>
+      <select id="logoPreset">
+        <option value="">— выберите готовый вариант —</option>
+        <option value="img/logo-white.png">Белое (водяной знак)</option>
+        <option value="img/logo-accent.png">Акцентное (терракота)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Логотип (путь к файлу) — пусто = монограмма «ЛД»</label>
+      <input type="text" id="f-logo" data-path="profile.logo" placeholder="img/logo-white.png">
+    </div>
+    <div class="field">
+      <label>Путь к главному фото</label>
+      <input type="text" id="f-photo" data-path="profile.photo">
+    </div>
+    <div class="field">
+      <label><input type="checkbox" id="f-photoMirror" data-check="profile.photoMirror" style="width:auto"> Зеркалить фото (смотрит внутрь страницы)</label>
+    </div>
+
+    <hr>
+
+    <h2>Главная и общие тексты</h2>
+    <div class="field">
+      <label>Имя (заголовок на главной)</label>
+      <input type="text" id="f-heroTitle" data-path="hero.title">
+    </div>
+    <div class="field">
+      <label>Подпись над именем</label>
+      <input type="text" id="f-eyebrow" data-path="hero.eyebrow">
+    </div>
+    <div class="field">
+      <label>Подзаголовок под именем</label>
+      <input type="text" id="f-heroSubtitle" data-path="hero.subtitle">
+    </div>
+    <div class="field">
+      <label>Описание (абзац под подзаголовком)</label>
+      <textarea id="f-heroDesc" data-path="hero.description" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label>Текст кнопки 1</label>
+      <input type="text" id="f-heroPrimary" data-path="hero.primaryBtn">
+    </div>
+    <div class="field">
+      <label>Текст кнопки 2</label>
+      <input type="text" id="f-heroSecondary" data-path="hero.secondaryBtn">
+    </div>
+
+    <hr>
+
+    <div class="field">
+      <label>Заголовок «Обо мне»</label>
+      <input type="text" id="f-aboutTitle" data-path="about.title">
+    </div>
+    <div class="field">
+      <label>Текст «Обо мне»</label>
+      <textarea id="f-aboutText" data-path="about.text" rows="6"></textarea>
+    </div>
+
+    <hr>
+
+    <div class="field">
+      <label>Заголовок «Портфолио»</label>
+      <input type="text" id="f-worksTitle" data-path="works.title">
+    </div>
+    <div class="field">
+      <label>Подсказка под вкладками</label>
+      <input type="text" id="f-worksHint" data-path="works.hint">
+    </div>
+
+    <hr>
+
+    <div class="field">
+      <label>Заголовок «Контакты»</label>
+      <input type="text" id="f-contactsTitle" data-path="contacts.title">
+    </div>
+    <div class="field">
+      <label>Подводка к контактам</label>
+      <input type="text" id="f-contactsLead" data-path="contacts.lead">
+    </div>
+    <div class="field">
+      <label>Сноска под контактами (мелкая ссылка-пояснение)</label>
+      <input type="text" id="f-contactsFootnote" data-path="contacts.footnote">
+    </div>
+  </section>
+
+  <section class="panel" id="panel-process">
+    <h2>Схема работы</h2>
+    <div class="note">Блок «Как я работаю» между портфолио и контактами. Редактируйте название, подводку и этапы (заголовок + описание).</div>
+    <div class="field">
+      <label>Заголовок блока</label>
+      <input type="text" id="f-processTitle" data-path="process.title">
+    </div>
+    <div class="field">
+      <label>Подводка (короткий текст)</label>
+      <input type="text" id="f-processLead" data-path="process.lead">
+    </div>
+    <hr>
+    <h2>Этапы</h2>
+    <div id="processEditor"></div>
+    <button class="btn btn--ghost" id="addStep">+ Добавить этап</button>
+  </section>
+
+  <section class="panel" id="panel-contacts">
+    <h2>Контакты</h2>
+    <div id="contactsEditor"></div>
+    <button class="btn btn--ghost" id="addContact">+ Добавить контакт</button>
+  </section>
+
+  <section class="panel" id="panel-portfolio">
+    <h2>Портфолио</h2>
+    <p class="note">Добавляйте проекты в категориях. Пути к фото указывайте относительно папки <code>site</code>, например <code>img/interior/СПАЛЬНЯ/1,00-111-111.jpg</code>. Файлы фото кладите в соответствующие папки <code>img/</code> сами.</p>
+    <div id="portfolioEditor"></div>
+  </section>
+
+  <div class="savebar">
+    <button class="btn btn--save" id="save">Сохранить</button>
+    <span class="savebar__status" id="status"></span>
+  </div>
+
+  <p class="footnote">Как это работает теперь: все правки <b>автосохраняются в браузере</b> и сразу видны на сайте (обновите F5). Кнопка «Сохранить» дополнительно пытается записать <code>site/content.js</code> через локальный сервер или скачивает файл. <br>Если открываете через <code>file://</code> — изменения хранятся только в браузере, для коллег/хостинга нажмите «Скачать content.js» и замените файл в папке <code>site</code>.</p>
+  <div class="savebar">
+    <button class="btn btn--ghost" id="download">Скачать content.js</button>
+    <button class="btn btn--ghost" id="resetLocal" title="Удалить правки из браузера">Сбросить правки (из браузера)</button>
+  </div>
+</div>
+
+<script src="content.js?v=19"></script>
+<script src="js/admin.js?v=19"></script>
+</body>
+</html>
