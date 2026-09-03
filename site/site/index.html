@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лариса Дока — 3D визуализатор</title>
+<meta name="description" content="Лариса Дока — 3D визуализатор. Интерьер, предметная и экстерьерная визуализация.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=24">
+</head>
+<body>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lbClose" aria-label="Закрыть">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Назад">&#10094;</button>
+  <div class="lightbox__stage">
+    <div class="lightbox__panel">
+      <p class="lightbox__title" id="lbTitle"></p>
+      <img id="lbImg" src="" alt="">
+    </div>
+    <div class="lightbox__side">
+      <p class="lightbox__counter" id="lbCounter"></p>
+      <p class="lightbox__desc" id="lbDesc"></p>
+    </div>
+  </div>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Вперёд">&#10095;</button>
+</div>
+
+<div class="zoom" id="zoom" aria-hidden="true">
+  <button class="zoom__close" id="zoomClose" aria-label="Закрыть">&times;</button>
+  <img id="zoomImg" src="" alt="">
+</div>
+
+<header class="header">
+  <div class="container header__in">
+    <a class="logo" href="#top">
+      <img id="logoImg" src="" alt="Лариса Дока" hidden>
+      <span id="logoMonogram" class="logo__monogram">ЛД</span>
+    </a>
+    <nav class="nav">
+      <a class="nav__link" href="#about">Обо мне</a>
+      <a class="nav__link" href="#works">Портфолио</a>
+      <a class="nav__link" href="#process">Этапы работы</a>
+      <a class="nav__link" href="#contacts">Контакты</a>
+      <a class="nav__link nav__link--cta" href="mailto:L-profy@yandex.ru">Написать</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero__in">
+    <div class="hero__text">
+      <p class="hero__eyebrow" id="eyebrow">3D визуализация</p>
+      <h1 class="hero__title" id="heroTitle">Лариса Дока</h1>
+      <p class="hero__subtitle" id="heroSubtitle"></p>
+      <p class="hero__desc" id="heroDesc"></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#works" id="heroPrimary"></a>
+        <a class="btn btn--ghost" href="#contacts" id="heroSecondary"></a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <img src="img/profile.png" alt="Лариса Дока — 3D визуализатор" id="heroPhoto">
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+    <h2 class="section__title" id="aboutTitle">Обо мне</h2>
+    <div class="about__row">
+      <span class="about__mark" aria-hidden="true">&laquo;</span>
+      <div class="about__text" id="aboutText"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section works" id="works">
+  <div class="container">
+    <h2 class="section__title" id="worksTitle">Портфолио</h2>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <p class="works__hint" id="worksHint"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="container">
+    <h2 class="section__title" id="processTitle"></h2>
+    <p class="section__lead" id="processLead"></p>
+    <div class="steps" id="steps"></div>
+  </div>
+</section>
+
+<section class="section contacts" id="contacts">
+  <div class="container">
+    <h2 class="section__title" id="contactsTitle">Контакты</h2>
+    <p class="section__lead" id="contactsLead"></p>
+    <span class="contacts__mark" aria-hidden="true"><span>&raquo;</span></span>
+    <div class="contacts__grid" id="contactsGrid"></div>
+    <p class="contacts__footnote" id="contactsFootnote"></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__in">
+    <p>&copy; <span id="year"></span> Лариса Дока &mdash; 3D визуализатор</p>
+  </div>
+</footer>
+
+<script src="content.js?v=19"></script>
+<script src="js/main.js?v=19"></script>
+</body>
+</html>
